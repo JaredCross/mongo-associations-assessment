@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  div.wrapper
+    div.header
+      h1 Add a New Recipe
+    div.content
+      h2 Enter the recipe information below: 
+      form(action='/user/' + userId +'/recipes' method='post')
+        include includes/recipe-form
+        div
+          input(type='submit' value = 'Add Recipe')

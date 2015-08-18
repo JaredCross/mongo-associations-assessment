@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  div.wrapper
+    div.header
+      h1 Welcome to your Cookbook
+    div.content
+      a(href='/user/' + userData._id + '/recipes/new') Add a Recipe
+      if recipeData.length > 0
+        each recipe in recipeData
+          li= recipe.recipeName
+      else
+        p You got no recipes

@@ -1,0 +1,11 @@
+div
+  label(for='add-ingredient') Add a New Ingredient
+  input(type='text' id='add-ingredient' name='add_ingredient')
+div
+  p or
+div
+  label(for='choose-ingredient') Choose one of your previously used ingredients
+  select(id='choose-ingredient' name='choose_ingredient')
+    option(value=null selected disabled) Choose An Ingredient
+    each ingredient in allIngredients
+      option(value=ingredient._id) #{ingredient.ingredientName}

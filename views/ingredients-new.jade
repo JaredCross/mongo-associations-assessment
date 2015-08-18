@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  div.wrapper
+    div.header
+      h1 Add Ingredients to #{recipeName}
+    div.content
+      form(action='/user/'+userId+'/recipes/'+recipeId+'/'+recipeName+'/ingredients' method='post')
+        include includes/ingredients-form
+        div
+          input(type='submit' value='Add Ingredient!')
+      form(action='/user/'+userId method='link')
+        input(type='submit' value='Click here when done')
+      div.ingredient-list
+        each ingredient in theseIngredients
+          li= ingredient.ingredientName

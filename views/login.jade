@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  div.wrapper
+    div.header
+      h2 Enter your login info below:
+    div.content
+      if error
+        ul
+          li= error
+      form(action='/user/login', method='post')
+        div
+          label(for='login-email') Email
+          input(type='text' id='login-email' name='login_email')
+        div
+          label(for='login-password') Password
+          input(type='text' id='login-password' name='login_password')
+        div
+          input(type='submit' value='Login!')

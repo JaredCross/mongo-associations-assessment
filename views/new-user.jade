@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  div.wrapper
+    div.header
+      h2 Welcome New User!
+      h2 Enter your information below:
+    div.content
+      if errors
+        ul
+          each error in errors
+            li= error
+      form(action='/user' method='post')
+        include includes/user-form
