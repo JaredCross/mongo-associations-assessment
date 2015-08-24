@@ -5,12 +5,19 @@ block content
     div.header
       h1 Add Ingredients to #{recipeName}
     div.content
-      form(action='/user/'+userId+'/recipes/'+recipeId+'/'+recipeName+'/ingredients' method='post')
-        include includes/ingredients-form
+      div.left
         div
-          input(type='submit' value='Add Ingredient!')
-      form(action='/user/'+userId method='link')
-        input(type='submit' value='Click here when done')
-      div.ingredient-list
-        each ingredient in theseIngredients
-          li= ingredient.ingredientName
+          h2 Add Ingredients:
+          div
+            form(action='/user/'+userId+'/recipes/'+recipeId+'/'+recipeName+'/ingredients' method='post')
+              include includes/ingredients-form
+              div
+                input(type='submit' value='Add Ingredient!')
+          div
+            form(action='/user/'+userId method='link')
+              input(type='submit' value='Click here when done')
+      div.left
+        div.ingredient-list
+          h2 Ingredients:
+          each ingredient in theseIngredients
+            li= ingredient.ingredientName

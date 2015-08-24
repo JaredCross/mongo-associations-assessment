@@ -5,9 +5,24 @@ block content
     div.header
       h1 Welcome to your Cookbook
     div.content
-      a(href='/user/' + userData._id + '/recipes/new') Add a Recipe
-      if recipeData.length > 0
-        each recipe in recipeData
-          li= recipe.recipeName
-      else
-        p You got no recipes
+      div.inner
+        div.left
+          h2 Your Recipes
+          a(href='/user/' + userData._id + '/recipes/new') Add a Recipe
+          if recipeData.length > 0
+            ul
+              each recipe in recipeData
+                li 
+                  a(href='/user/'+userData._id+'/recipes/'+ recipe.recipeName+ '/'+ recipe._id) #{recipe.recipeName}
+          else
+            p You got no recipes
+        div.left
+          if allIngredients
+            h2 All ingredients used in these recipes:
+            a(href='/user/' + userData._id + '/ingredients/edit') Edit Ingredients
+            ul
+              each ingredient in allIngredients
+                li 
+                  a(href='/user/'+userData._id+'/ingredients/'+ingredient.ingredientName+'/'+ingredient._id) #{ingredient.ingredientName}
+            
+      

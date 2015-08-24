@@ -1,8 +1,63 @@
-body {
-  padding: 50px;
+html, body {
+  padding: 0;
+  margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+div.nav {
+  height: 100px;
+  width: 100%;
+  background: #563F1B;
+  color: #38726C;
+  padding-bottom: 15px;
+}
+.nav h1 {
+  margin: 0;
+  font-size: 100px;
+  margin-left: 50px;
+}
+
+div.left {
+  float: left;
+  margin-left: 50px;
+  width: 40%;
+}
+
+.header h1 {
+  margin-left: 50px;
+}
+
+label {
+  margin-right: 1%;
+  width: 25%;
+}
+
+input {
+  width : 50%;
+}
+
+input[type='submit'] {
+  width : auto;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-left: 16%;
+}
+
+.home a {
+  margin-left: 16%;
+}
+
+.left form p {
+  margin-left: 7%;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+div.clear {
+  clear: both;
+  margin-left: 50px;
 }

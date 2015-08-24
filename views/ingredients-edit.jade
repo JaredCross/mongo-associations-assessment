@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  div.wrapper
+    div.header
+      h1 Edit ALL the ingredients
+    div.content
+      div.left
+        div
+          if allIngredients
+            table
+              each ingredient in allIngredients
+                tr
+                  td
+                    form(action='/user/'+userData+'/ingredients/update' method='post')
+                      input(type='text' value=ingredient.ingredientName name='ingredientName')
+                      input(type='hidden' value=ingredient._id name='ingredientId')
+                      input(type='submit' value='Update')
+                  td or
+                  td
+                    form(action='/user/'+userData+'/ingredients/delete' method='post')
+                      input(type='hidden' value=ingredient._id name='ingredientId')
+                      input(type='submit' value='Delete')
+      div.clear
+        div
+          a(href='/user/' + userData) Click to go back
+            

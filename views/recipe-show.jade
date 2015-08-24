@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  div.wrapper
+    div.header
+      h1 Recipe for #{recipeName}
+    div.content
+      div.left
+        if theseIngredients
+          div.ingredient-list
+            h2 Ingredients:
+            ul
+              each ingredient in theseIngredients
+                li= ingredient.ingredientName
+        div
+          form(action='/user/' +userId + '/recipes/' + recipeName +'/' + recipeId +'/edit' method='link')
+            button(type='submit') Edit Recipe
+        div
+          form(action='/user/' +userId + '/recipes/' + recipeName +'/' + recipeId +'/delete' method='post')
+            button(type='submit') Delete Recipe
+        div
+          a(href='/user/'+userId) Return to Your Cookbook

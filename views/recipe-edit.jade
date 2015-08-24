@@ -1,0 +1,38 @@
+extends layout
+
+block content
+  div.wrapper
+    div.header
+      h1 Edit Recipe for #{recipeName}
+    div.content
+      div.left
+        div
+          h2 Edit Recipe Name:
+          div
+            form(action='/user/'+userData+'/recipes/'+recipeName+'/'+recipeId, method='post')
+              include includes/recipe-form
+              input(type='submit' value='Update Recipe Name')
+          div
+            form(action='/user/'+userData+'/recipes/'+recipeName+'/'+recipeId+'/ingredients/new/update' method='post')
+              include includes/ingredients-form
+              div
+                input(type='submit' value='Add Ingredient!')
+        div
+          a(href='/user/'+userData) Return to Your Cookbook
+      div.left
+        if theseIngredients
+          div.ingredient-list
+            h2 Current Ingredients:
+            table
+              each ingredient in theseIngredients
+                tr
+                  td
+                    form(action='/user/'+userData+'/recipes/'+recipeName+'/'+recipeId+'/ingredients/update' method='post')
+                      input(type='text' value=ingredient.ingredientName name='ingredientName')
+                      input(type='hidden' value=ingredient._id name='ingredientId')
+                      input(type='submit' value='Update')
+                  td or
+                  td
+                    form(action='/user/'+userData+'/recipes/'+recipeName+'/'+recipeId+'/ingredients/delete' method='post')
+                      input(type='hidden' value=ingredient._id name='ingredientId')
+                      input(type='submit' value='Delete')

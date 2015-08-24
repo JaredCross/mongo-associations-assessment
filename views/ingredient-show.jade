@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  div.wrapper
+    div.header
+      h1 Ingredient: #{ingredient}
+    div.content
+      div.left
+        if recipes
+          div
+            ul
+              each recipe in recipes
+                li
+                  a(href='/user/'+userId+'/recipes/'+recipe.recipeName+'/'+recipe._id) #{recipe.recipeName}
+          div
+            a(href='/user/'+userId) Return to Your Cookbook
